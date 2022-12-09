@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Category List</title>
+    <title>Products List</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../admins/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../admins/vendors/css/vendor.bundle.base.css">
@@ -101,7 +101,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/product')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Index</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('admin/product/create')}}">Create Products</a></li>
               </ul>
             </div>
@@ -117,8 +117,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">Index</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/category/create')}}">Create Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/category')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/CreateC')}}">Create Products</a></li>
               </ul>
             </div>
           </li>
@@ -142,7 +142,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-account-box"></i>
+                <i class="mdi mdi-laptop"></i>
               </span>
               <span class="menu-title">User</span>
               <i class="menu-arrow"></i>
@@ -155,6 +155,8 @@
             </div>
           </li>
           
+        </ul>
+      </nav>
         </ul>
       </nav>
       <!-- partial -->
@@ -313,7 +315,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="../admins/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}/p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -343,43 +345,49 @@
             <div class="col-lg-20 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                    <h4>
-                        Category
-                        <a href="{{ url('admin/category/create')}}" class="btn btn-primary float-right">Add Category</a>
-                    </h4>
-                </div>
-                @if (Session::has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{Session::get('success')}}
-                </div>
-                @endif
-                <div class="card-body">
+                  <h4 class="card-title">Product List</h4>
+                  @if (Session:: has('success'))
+                  <div class="alert alert-success" role="alert">
+                      {{Session::get('success')}}
+                  </div>
+                  @endif
+                  <div class="table-responsive">
                     <table class="table table-hover">
-                    <thead>
+                      <thead>
                         <tr>
-                            <th>IDs</th>
-                            <th>Category name</th>
-                            <th>Actions</th>
+                          <th>Ids</th>
+                          <th>Name Product</th>
+                          <th>Price</th>     
+                          <th>Image</th>
+                          <th>Detail</th>
+                          <th>Trademark</th> 
+                          <th> Action</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($data as $row )
-                            <tr>
-                                <td>{{$row->categoryID}}</td>
-                                <td>{{$row->categoryName}}</td>
-                                <td>
-                                    <a href="{{url('admin/category/edit/'. $row->categoryID)}}" class="btn btn-success">Edit</a>
-                                    <a href="{{url('admin/category/delete/'. $row->categoryID)}}" class="btn btn-danger"
-                                        onclick="return confirm ('Are you sure!');">Delete</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                      </thead>
+                      <tbody>
+                        @foreach ($data as $product)
+                        <tr>
+                            <td>{{$product->productID}}</td>
+                            <td>{{$product->productName}}</td>
+                            <td>{{$product->productPrice}}</td>
+                            <td>
+                                <img src="..\Image\products\{{$product->productImage1}}" alt="No Image" 
+                                height="30x" width="30px">
+                            </td>
+                            <td>{{$product->productDetails}}</td>
+                            <td>{{$product->trademarkName}}</td> 
+                            <td><a href="{{url('admin/product/edit/'. $product->productID)}}" class="btn btn-primary" >Edit</a> 
+                                <a href="{{url('admin/product/delete/'.$product->productID)}}" class="btn btn-danger"
+                                    onclick="return confirm ('You want to delete!');"  >Delete</a></td>
+                        </tr>
+                         @endforeach
+                      </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
+
             <br>
             <br>
             <br>

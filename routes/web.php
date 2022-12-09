@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\TrademarkController;
+use App\Http\Controllers\AdminController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,4 +39,19 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('category/edit/{id}', [CategoryController::class, 'edit']);
     Route::post('category/update', [CategoryController::class, 'update']);
 
+    Route::get('product', [ProductController::class, 'getProduct']);
+    Route::get('product/create', [ProductController::class, 'addP']);
+    Route::post('product/save', [ProductController::class, 'saveP']);
+    Route::get('product/edit/{id}', [ProductController::class, 'editP']);
+    Route::post('product/update', [ProductController::class, 'updateP']);
+    Route::get('product/delete/{id}', [ProductController::class, 'deleteP']);
+
+    Route::get('trademark', [TrademarkController::class, 'index']);
+    Route::get('trademark/create', [TrademarkController::class, 'create']);
+    Route::post('trademark/save', [TrademarkController::class, 'save']);
+    Route::get('trademark/delete/{id}', [TrademarkController::class, 'delete']);
+    Route::get('trademark/edit/{id}', [TrademarkController::class, 'edit']);
+    Route::post('trademark/update', [Trademark::class, 'update']);
+
+    Route::get('logout',[AdminController::class, 'logout']);
 });

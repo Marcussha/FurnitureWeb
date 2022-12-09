@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Category List</title>
+    <title>Trademark List</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../admins/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../admins/vendors/css/vendor.bundle.base.css">
@@ -117,7 +117,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/category')}}">Index</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('admin/category/create')}}">Create Category</a></li>
               </ul>
             </div>
@@ -133,7 +133,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Trademark</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Index</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
               </ul>
             </div>
@@ -144,7 +144,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-account-box"></i>
               </span>
-              <span class="menu-title">User</span>
+              <span class="menu-title">User Page</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
@@ -313,7 +313,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="../admins/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}/p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
@@ -344,8 +344,8 @@
               <div class="card">
                 <div class="card-body">
                     <h4>
-                        Category
-                        <a href="{{ url('admin/category/create')}}" class="btn btn-primary float-right">Add Category</a>
+                        Producer
+                        <a href="{{ url('admin/trademark/create')}}" class="btn btn-primary float-right">Create new </a>
                     </h4>
                 </div>
                 @if (Session::has('success'))
@@ -358,18 +358,18 @@
                     <thead>
                         <tr>
                             <th>IDs</th>
-                            <th>Category name</th>
+                            <th>Trademark name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $row )
                             <tr>
-                                <td>{{$row->categoryID}}</td>
-                                <td>{{$row->categoryName}}</td>
+                                <td>{{$row->trademarkId}}</td>
+                                <td>{{$row->trademarkName}}</td>
                                 <td>
-                                    <a href="{{url('admin/category/edit/'. $row->categoryID)}}" class="btn btn-success">Edit</a>
-                                    <a href="{{url('admin/category/delete/'. $row->categoryID)}}" class="btn btn-danger"
+                                    <a href="{{url('admin/trademark/edit/'. $row->trademarkId)}}" class="btn btn-success">Edit</a>
+                                    <a href="{{url('admin/trademark/delete/'. $row->trademarkId)}}" class="btn btn-danger"
                                         onclick="return confirm ('Are you sure!');">Delete</a>
                                 </td>
                             </tr>

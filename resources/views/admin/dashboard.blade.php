@@ -38,7 +38,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">{{Session::get('fullname')}}</h5>
+                  <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
                   <span>Gold Member</span>
                 </div>
               </div>
@@ -101,8 +101,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/products')}}">Index</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/addP')}}">Create Products</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/product')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/product/create')}}">Create Products</a></li>
               </ul>
             </div>
           </li>
@@ -123,6 +123,37 @@
             </div>
           </li>
 
+                    <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-bookmark-check"></i>
+              </span>
+              <span class="menu-title">Trademark</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Trademark</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">User</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user')}}">Trademark</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user/update')}}">Update information</a></li>
+              </ul>
+            </div>
+          </li>
 
         </ul>
       </nav>
@@ -282,23 +313,22 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="../admins/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{Session::get('adminName')}}</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item" href="logout">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content" >
-                      <p class="preview-subject mb-1"  >Log out</p>
-                    </div>
-                  </a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+               </a>
+
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                   @csrf
+               </form>
                 </div>
               </li>
             </ul>
