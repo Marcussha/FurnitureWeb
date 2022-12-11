@@ -50,6 +50,7 @@
             <li><a href="./products.blade.php">What we do</a></li>
             <li><a href="testimonial.html">Contact Us</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ url ('/home')}}">Proflie</a></li>
          </ul>
       </div>
       <header class="header">
@@ -230,6 +231,7 @@
                                     <li><a href="#">Services</a></li>
                                     <li><a href="{{url('list')}}" >What we do</a></li>
                                     <li><a href="#">Testimonial</a></li>
+                                    <li><a href="#">Contact us</a></li>
                                     <li><a href="#">Contact us</a></li>
                                  </ul>
                               </div>

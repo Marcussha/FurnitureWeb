@@ -25,7 +25,7 @@
 
                   <div class="col-md-6 mb-3">
                       <Label>IDs</Label>
-                      <input type="text" name="id" class="form-control" value="{{$data->categoryID}}" >
+                      <input type="text" name="id" class="form-control" value="{{$data->categoryID}}" readonly >
                   </div>
 
                   <div class="col-md-6 mb-3">
