@@ -36,6 +36,11 @@
     outline: none !important;
     box-sizing: border-box;
 }
+.featured__controls {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 
 input,
 button,
@@ -52,6 +57,10 @@ body {
     line-height: normal;
     font-weight: 400;
     overflow-x: hidden !important;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 body {
