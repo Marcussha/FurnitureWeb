@@ -149,8 +149,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user')}}">Trademark</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user/update')}}">Update information</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Information</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/update')}}">Update information</a></li>
               </ul>
             </div>
           </li>

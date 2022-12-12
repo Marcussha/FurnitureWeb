@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\TrademarkController;
+use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\AdminController;
 
 
@@ -53,5 +54,11 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('trademark/edit/{id}', [TrademarkController::class, 'edit']);
     Route::post('trademark/update', [Trademark::class, 'update']);
 
-    Route::get('logout',[AdminController::class, 'logout']);
+    Route::get('customer', [CustomerController::class, 'index']);
+    Route::get('customer/create', [CustomerController::class, 'create']);
+    Route::post('customer/save', [CustomerController::class, 'save']);
+    Route::get('customer/delete/{id}', [CustomerController::class, 'delete']);
+    Route::get('customer/edit/{id}', [CustomerController::class, 'edit']);
+    Route::post('customer/update', [CustomerController::class, 'update']);
+
 });
