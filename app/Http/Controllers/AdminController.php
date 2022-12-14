@@ -11,11 +11,5 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
-
-    public function logout(){
-        if(Session::has('adminLogin')){
-            Session :: pull ('adminLogin');
-            return view('/login');
-        }
-    }
+    
 }
