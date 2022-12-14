@@ -58,7 +58,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('customer/create', [CustomerController::class, 'create']);
     Route::post('customer/save', [CustomerController::class, 'save']);
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete']);
-    Route::get('customer/edit/{id}', [CustomerController::class, 'edit']);
-    Route::post('customer/update', [CustomerController::class, 'update']);
+    Route::get('customer/edit/{id}', [CustomerController::class, 'editC']);
+    Route::post('customer/update', [CustomerController::class, 'updateC']);
 
 });

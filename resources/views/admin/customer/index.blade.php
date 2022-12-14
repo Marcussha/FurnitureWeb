@@ -126,6 +126,22 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Customer</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/create')}}">Create Customer</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
                 <i class="mdi mdi-bookmark-check"></i>
               </span>
               <span class="menu-title">Trademark</span>
@@ -154,7 +170,7 @@
               </ul>
             </div>
           </li>
-          
+
         </ul>
       </nav>
       <!-- partial -->
@@ -344,8 +360,8 @@
               <div class="card">
                 <div class="card-body">
                     <h4>
-                        Producer
-                        <a href="{{ url('admin/trademark/create')}}" class="btn btn-primary float-right">Create new </a>
+                        Customer
+                        <a href="{{ url('admin/customer/create')}}" class="btn btn-primary float-right">Create new </a>
                     </h4>
                 </div>
                 @if (Session::has('success'))
@@ -357,20 +373,28 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>IDs</th>
-                            <th>Trademark name</th>
-                            <th>Actions</th>
+                            <th>User Name</th>
+                            <th>Password</th>
+                            <th>Fullname</th>
+                            <th>address</th>
+                            <th>Phone</th>
+                            <th>email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $row )
                             <tr>
-                                <td>{{$row->trademarkId}}</td>
-                                <td>{{$row->trademarkName}}</td>
+                                <td>{{$row->username}}</td>
+                                <td>{{$row->password}}</td>
+                                <td>{{$row->fullname}}</td>
+                                <td>{{$row->address}}</td>
+                                <td>{{$row->phone}}</td>
+                                <td>{{$row->email}}</td>
                                 <td>
-                                    <a href="{{url('admin/trademark/edit/'. $row->trademarkId)}}" class="btn btn-success">Edit</a>
-                                    <a href="{{url('admin/trademark/delete/'. $row->trademarkId)}}" class="btn btn-danger"
-                                        onclick="return confirm ('Are you sure!');">Delete</a>
+                                  <a href="{{url('admin/customer/edit/'. $row->username)}}" class="btn btn-success">Edit</a>
+                                  <a href="{{url('admin/customer/delete/'. $row->username)}}" class="btn btn-danger"
+                                      onclick="return confirm ('Are you sure!');">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
