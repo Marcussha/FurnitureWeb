@@ -52,7 +52,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::post('trademark/save', [TrademarkController::class, 'save']);
     Route::get('trademark/delete/{id}', [TrademarkController::class, 'delete']);
     Route::get('trademark/edit/{id}', [TrademarkController::class, 'edit']);
-    Route::post('trademark/update', [Trademark::class, 'update']);
+    Route::post('trademark/update', [TrademarkController::class, 'update']);
 
     Route::get('customer', [CustomerController::class, 'index']);
     Route::get('customer/create', [CustomerController::class, 'create']);

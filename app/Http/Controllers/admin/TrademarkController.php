@@ -48,7 +48,7 @@ class TrademarkController extends Controller
         $trademarkId = $request->id;
         $trademarkName = $request->name;
         Trademark::where('trademarkId', '=', $trademarkId)->update([
-            'trademarkId'=>$trademarkName,
+            'trademarkName'=>$trademarkName,
         ]);
         return redirect()->back()->with('success', 'Producer update successfully!');
     }

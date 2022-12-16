@@ -128,13 +128,13 @@
               <span class="menu-icon">
                 <i class="mdi mdi-bookmark-check"></i>
               </span>
-              <span class="menu-title">Trademark</span>
+              <span class="menu-title">Producer</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Trademark</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create New</a></li>
               </ul>
             </div>
           </li>
@@ -149,11 +149,12 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user')}}">Trademark</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/user/update')}}">Update information</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Information</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/update')}}">Update information</a></li>
               </ul>
             </div>
           </li>
+
           
         </ul>
       </nav>
