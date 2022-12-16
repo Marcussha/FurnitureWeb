@@ -49,6 +49,7 @@
             <li><a href="{{url('doing')}}">02.What we do</a></li>
             <li><a href="{{url('contact')}}">03.Contact Us</a></li>
             <li><a href="{{ route('login') }}">04.Login</a></li>
+            <li><a href="{{ route('home') }}">05.Profile</a></li>
          </ul>
       </div>
       <header class="header">

@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('home', function () {
+    return view('home');
+});
+
 Route::get('about', function () {
     return view('about');
 });
@@ -38,7 +42,6 @@ Route::get('contact', function () {
 Route::get('test', function () {
     return view('test');
 });
-
 
 
 Auth::routes();

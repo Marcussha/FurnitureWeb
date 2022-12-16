@@ -45,10 +45,11 @@
       <div id="mySidenav" class="sidenav">
          <ul class="menu_sidebar">
             <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-            <li><a href="{{url('/')}}">01. Home</a></li>
-            <li><a href="{{url('about')}}">02. About</i></a></li>
-            <li><a href="{{url('doing')}}">03. What we do</a></li>
-            <li><a href="{{url('test')}}">04. Testimonial</a></li>
+            <li><a href="{{url('about')}}">01.About</i></a></li>
+            <li><a href="{{url('doing')}}">02.What we do</a></li>
+            <li><a href="{{url('contact')}}">03.Contact Us</a></li>
+            <li><a href="{{ route('login') }}">04.Login</a></li>
+            <li><a href="{{ route('home') }}">05.Profile</a></li>
          </ul>
       </div>
       <header class="header">
@@ -59,7 +60,7 @@
                      <div class="full">
                         <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="img/menu_icon.png" alt="#" /></span>
                         <div class="logo_circle">
-                           <a href="{{url('/')}}"><img class="img-responsive" src="img/logo.png" alt="#" /></a>
+                           <h1 style="color:White" href="index.html"><Strong>VIET FURNITURE</Strong></h1>
                         </div>
                      </div>
                   </div>
