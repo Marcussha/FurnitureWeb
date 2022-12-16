@@ -81,4 +81,16 @@ class ProductController extends Controller
         $data = Product::where('productID', '=', $id)->delete();
         return redirect()->back()->with('success', 'Product removed successfully!');
     }
+
+    public function index(){
+
+        $data= Product::select('products.*','trademark.trademarkName')
+        ->join('trademark','products.trademarkId','=','trademark.trademarkId')->get();
+        return view('doing',compact('data'));
+
+        /* $data = Product::select('products.*','categories.categoryName')
+        ->join('categories', ' products.categoryID','=','categories.categoryID')
+        -> get();
+        return view("admins/products/index"); */
+    }
 }

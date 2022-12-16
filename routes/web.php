@@ -31,9 +31,7 @@ Route::get('about', function () {
     return view('about');
 });
 
-Route::get('doing', function () {
-    return view('doing');
-});
+Route::get('doing', [ProductController::class, 'index']);
 
 Route::get('contact', function () {
     return view('contact');
