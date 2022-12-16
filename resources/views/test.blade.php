@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>VIET FURNITURE - Make your home comfort</title>
+      <title>Testimonial</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -35,20 +35,20 @@
       <!-- owl stylesheets -->
       <link rel="stylesheet" href="{{ asset('clients/css/owl.carousel.min.css') }}">
       <link rel="stylesheet" href="{{ asset('clients/css/owl.theme.default.css') }}">
-      <!--[if lt IE 9]>
+   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
    </head>
-   <body id="default_theme" class="home_page1">
+   <body id="default_theme" class="testimonial">
       <!-- header -->
       <div id="mySidenav" class="sidenav">
          <ul class="menu_sidebar">
             <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-            <li><a href="{{url('about')}}">01.About</i></a></li>
-            <li><a href="{{url('doing')}}">02.What we do</a></li>
-            <li><a href="{{url('contact')}}">03.Contact Us</a></li>
-            <li><a href="{{ route('login') }}">04.Login</a></li>
+            <li><a href="{{url('/')}}">01. Home</a></li>
+            <li><a href="{{url('doing')}}">02. What we do</a></li>
+            <li><a href="{{url('about')}}">03. About</a></li>
+            <li><a href="{{url('contact')}}">04. Contact Us</a></li>
          </ul>
       </div>
       <header class="header">
@@ -57,21 +57,21 @@
                <div class="row">
                   <div class="col-md-4">
                      <div class="full">
-                        <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="{{ asset('clients/img/menu_icon.png')}}" alt="#" /></span>
+                        <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="img/menu_icon.png" alt="#" /></span>
                         <div class="logo_circle">
-                           <h1 style="color:White" href="index.html"><Strong>VIET FURNITURE</Strong></h1>
+                           <a href="{{url('/')}}"><img class="img-responsive" src="img/logo.png" alt="#" /></a>
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-8">
                      <div class="float-right">
                         <ul class="top_links">
-                           <li><a href="{{ route('login') }}"><img src="{{ asset('clients/images/profile_icon.png')}}" alt="#" /></a></li>
+                           <li><a href="{{ route('login') }}"><img src="images/profile_icon.png" alt="#" /></a></li>
                            <li class="searchbar">
                               <input class="search_input" type="text" name="" placeholder="Search...">
-                              <a href="#" class="search_icon"><img src="{{ asset('clients/images/search_icon.png')}}" alt="#" /></a>
+                              <a href="#" class="search_icon"><img src="images/search_icon.png" alt="#" /></a>
                            </li>
-                        </ul> 
+                        </ul>
                      </div>
                   </div>
                </div>
@@ -80,46 +80,12 @@
       </header>
       <!-- end header -->
       <!-- Start Banner Slider -->
-      <div class="banner-slider">
-         <div class="container-fluid">
+      <div id="inner_pade" class="banner-slider">
+         <div class="container">
             <div class="row">
-               <div id="slider_main" class="carousel slide" data-ride="carousel">
-                  <!-- The slideshow -->
-                  <div class="carousel-inner">
-                     <div class="carousel-item active">
-                        <div class="full">
-                           <div class="left_blog_top">
-                              <h3>Decorate<br>Service</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                              <a class="bt_main" href="contact.html">Contact Us</a>
-                           </div>
-                           <div class="right_blog_top">
-                              <img src="{{ asset('clientsimg/slide1_right.png'  )}}" alt="#" />
-                           </div>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="full">
-                           <div class="left_blog_top">
-                              <h3>Decorate<br>Service</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                              <a class="bt_main" href="contact.html">Contact Us</a>
-                           </div>
-                           <div class="right_blog_top">
-                              <img src="img/slide1_right.png" alt="#" />
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="slide_arrow">
-                     <span>
-                     <a class="carousel-control-prev" href="#slider_main" data-slide="prev">
-                     <span class="carousel-control-prev-icon"></span>
-                     </a>
-                     <a class="carousel-control-next" href="#slider_main" data-slide="next">
-                     <span class="carousel-control-next-icon"></span>
-                     </a>
-                     </span>
+               <div class="col-sm-12">
+                  <div class="full">
+                      <h2>Testimonial</h2>
                   </div>
                </div>
             </div>
@@ -127,81 +93,86 @@
       </div>
       <!-- End Banner Slider -->
       <!-- section -->
-      <section class="layout_padding what_we_do">
+      <section class="layout_padding">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <div class="full heading_s1">
-                     <h3>What We Do</h3>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                  <div class="full heading_s1 text_align_center">
+                     <h3>Testimonial</h3>
                   </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3">
-                  <div class="full decorate_blog">
-                     <img  class="img-fluid w-100" src="{{asset('Image/products/light.png')}}" />
-                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3"><b>Lighting</b></h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                  <div class="testimonial_slider">
+                     <div class="full">
+                        <div class="client_slider_main2">
+                           <div id="testimonial2" class="client_slider_main owl-carousel owl-theme">
+                              <div class="item">
+                                 <div class="row">
+                                    <div class="col-md-3">
+                                       <div class="full">
+                                          <div class="center"> <img src="images/layout_img/testimo_profile.png" alt="#" /> </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                       <div class="full">
+                                          <div class="testi_head">
+                                             <h4>Lianna john</h4>
+                                             <p>Home Rentel</p>
+                                          </div>
+                                       </div>
+                                       <div class="full testi_slide">
+                                          <p><img src="images/layout_img/quate_left_test.png" alt="#" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="item">
+                                 <div class="row">
+                                    <div class="col-md-3">
+                                       <div class="full">
+                                          <div class="center"> <img src="images/layout_img/testimo_profile.png" alt="#" /> </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                       <div class="full">
+                                          <div class="testi_head">
+                                             <h4>Rosy Mike</h4>
+                                             <p>Home Rentel</p>
+                                          </div>
+                                       </div>
+                                       <div class="full testi_slide">
+                                          <p><img src="images/layout_img/quate_left_test.png" alt="#" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="item">
+                                 <div class="row">
+                                    <div class="col-md-3">
+                                       <div class="full">
+                                          <div class="center"> <img src="images/layout_img/testimo_profile.png" alt="#" /> </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                       <div class="full">
+                                          <div class="testi_head">
+                                             <h4>William Butter</h4>
+                                             <p>Home Rentel</p>
+                                          </div>
+                                       </div>
+                                       <div class="full testi_slide">
+                                          <p><img src="images/layout_img/quate_left_test.png" alt="#" />Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                        </div>
-                        <a href="" class="decorate_blog_bt"></i>View Detail</a>
-                  </div>
-               </div>
-               
-               <div class="col-md-3">
-                <div class="full decorate_blog">
-                   <img  class="img-fluid w-100" src="{{asset('Image/products/product2.jpg')}}" />
-                   <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                      <h6 class="text-truncate mb-3"><b>Lighting</b></h6>
-                      <div class="d-flex justify-content-center">
-                          <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                      </div>
-                      </div>
-                      <a href="" class="decorate_blog_bt"></i>View Detail</a>
-                </div>
-             </div>
-
-             <div class="col-md-3">
-                <div class="full decorate_blog" >
-                   <img  class="img-fluid w-100" src="{{asset('Image/products/product3.jpg')}}" />
-                   <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                      <h6 class="text-truncate mb-3"><b>Lighting</b></h6>
-                      <div class="d-flex justify-content-center">
-                          <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                      </div>
-                      </div>
-                      <a href="" class="decorate_blog_bt">View Detail</a>
-                </div>
-             </div>
-
-             <div class="col-md-3">
-                <div class="full decorate_blog">
-                   <img  class="img-fluid w-100" src="{{asset('Image/products/download.jpg')}}" />
-                   <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                      <h6 class="text-truncate mb-3"><b>Lighting</b></h6>
-                      <div class="d-flex justify-content-center">
-                          <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                      </div>
-                      </div>
-                      <a href="" class="decorate_blog_bt"></i>View Detail</a>
-                </div>
-             </div>
-
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="full">
-                     <a class="read_more_bt float-right" href="#">Read More</a>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
       </section>
       <!-- end section -->
- 
-
       <!-- end footer -->
       <footer>
          <div class="container-fluid">
@@ -227,9 +198,8 @@
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#">About</a></li>
                                     <li><a href="#">Services</a></li>
-                                    <li><a href="{{url('list')}}" >What we do</a></li>
+                                    <li><a href="#">What we do</a></li>
                                     <li><a href="#">Testimonial</a></li>
-                                    <li><a href="#">Contact us</a></li>
                                     <li><a href="#">Contact us</a></li>
                                  </ul>
                               </div>
@@ -328,7 +298,6 @@
          </div>
       </div>
       <!-- end cpy -->
-      <!-- jQuery (necessary for Bootstrap's JavaScript) -->
       <script src="{{ asset('clients/js/jquery.min.js') }}"></script>
       <script src="{{ asset('clients/js/popper.min.js') }}"></script>
       <script src="{{ asset('clients/js/bootstrap.min.js') }}"></script>

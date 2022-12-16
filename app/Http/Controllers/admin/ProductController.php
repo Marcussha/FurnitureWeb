@@ -70,7 +70,7 @@ class ProductController extends Controller
             'productPrice'=>$productPrice,
             'productDetails'=>$productDetails,
             'productImage1'=>$productImage1,
-            'producerID'=>$trademarkId,
+            'trademarkId'=>$trademarkId,
             'categoryID'=>$categoryID
         ]);
         return redirect()->back()->with('success', 'Product updated successfully!');

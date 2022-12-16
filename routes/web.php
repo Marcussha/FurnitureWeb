@@ -19,10 +19,27 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('doing', function () {
+    return view('doing');
+});
+
+Route::get('contact', function () {
+    return view('contact');
+});
+
+Route::get('test', function () {
+    return view('test');
+});
+
+
 
 Auth::routes();
 
