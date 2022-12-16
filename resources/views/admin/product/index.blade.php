@@ -144,13 +144,13 @@
               <span class="menu-icon">
                 <i class="mdi mdi-bookmark-check"></i>
               </span>
-              <span class="menu-title">Trademark</span>
+              <span class="menu-title">Producer</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Trademark</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create new</a></li>
               </ul>
             </div>
           </li>
@@ -389,18 +389,7 @@
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+             
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">

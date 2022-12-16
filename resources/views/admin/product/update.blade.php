@@ -2,9 +2,8 @@
 
 @section('content')
 
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="col-12 grid-margin stretch-card">
+<div class="row">
+    <div class="col-sm-12 mb-4 mb-xl-0">
             <div class="card">
               <div class="card-body">
                 <h2> Update </h2>
@@ -104,3 +103,5 @@
               </div>
             </div>
           </div>
+
+    @endsection

@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="col-lg-20 grid-margin stretch-card">
+   
+<div class="row">
+    <div class="col-sm-12 mb-4 mb-xl-0">
                 <div class="card">
                     <div class="card-body">
                         <h4>
@@ -53,5 +53,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
