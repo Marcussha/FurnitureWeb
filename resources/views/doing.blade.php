@@ -104,9 +104,10 @@
       <section class="layout_padding what_we_do">
          <div class="container">
             <div class="row">
+            @foreach ($data as $product)
                <div class="col-md-3">
                   <div class="full decorate_blog">
-                        @foreach ($data as $product)
+                        
                             <tr>
                                  <td>
                                  <img src=".\Image\products\{{$product->productImage1}}" alt="No Image">
@@ -117,10 +118,10 @@
                                 <p>{{$product->productDetails}}</p>
                               </div>
                             </tr>
-                        @endforeach
+                       
                   </div>
                </div>
-              
+               @endforeach
                
          </div>
       </section>
