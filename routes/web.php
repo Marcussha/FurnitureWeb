@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\TrademarkController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\admin\UserController;
+
 
 
 /*
@@ -71,12 +73,22 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('trademark/delete/{id}', [TrademarkController::class, 'delete']);
     Route::get('trademark/edit/{id}', [TrademarkController::class, 'edit']);
     Route::post('trademark/update', [TrademarkController::class, 'update']);
-
+//Customer by Thien
     Route::get('customer', [CustomerController::class, 'index']);
     Route::get('customer/create', [CustomerController::class, 'create']);
     Route::post('customer/save', [CustomerController::class, 'save']);
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete']);
     Route::get('customer/edit/{id}', [CustomerController::class, 'editC']);
     Route::post('customer/update', [CustomerController::class, 'updateC']);
+
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('users/create', [UserController::class, 'create']);
+    Route::post('users/save', [UserController::class, 'save']);
+    Route::get('users/delete/{id}', [UserController::class, 'delete']);
+    Route::get('users/edit/{id}', [UserController::class, 'editU']);
+    Route::post('users/update', [UserController::class, 'updateU']);
+
+
+
 
 });

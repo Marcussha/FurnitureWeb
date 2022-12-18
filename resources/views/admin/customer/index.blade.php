@@ -82,6 +82,7 @@
           <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
           </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('admin/dashboard')}}">
               <span class="menu-icon">
@@ -122,18 +123,19 @@
               </ul>
             </div>
           </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
-              <span class="menu-title">User</span>
+              <span class="menu-title">Customer</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Information</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/update')}}">Update information</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/create')}}">Create Customer</a></li>
               </ul>
             </div>
           </li>
@@ -143,19 +145,32 @@
               <span class="menu-icon">
                 <i class="mdi mdi-bookmark-check"></i>
               </span>
-              <span class="menu-title">Producer</span>
+              <span class="menu-title">Trademark</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Index</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create New</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
               </ul>
             </div>
           </li>
 
-          
-
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-box"></i>
+              </span>
+              <span class="menu-title">User Page</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/users')}}">Index</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('admin/users/update')}}">Update information</a></li>
+              </ul>
+            </div>
+          </li>
 
         </ul>
       </nav>
@@ -359,8 +374,7 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>User Name</th>
-                            <th>Password</th>
+                            <th>UserName</th>
                             <th>Fullname</th>
                             <th>address</th>
                             <th>Phone</th>
@@ -372,7 +386,6 @@
                         @foreach ($data as $row )
                             <tr>
                                 <td>{{$row->username}}</td>
-                                <td>{{$row->password}}</td>
                                 <td>{{$row->fullname}}</td>
                                 <td>{{$row->address}}</td>
                                 <td>{{$row->phone}}</td>
@@ -390,7 +403,18 @@
                 </div>
               </div>
             </div>
-
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
