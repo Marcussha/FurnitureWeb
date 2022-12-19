@@ -67,7 +67,7 @@
                      <div class="full">
                         <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="img/menu_icon.png" alt="#" /></span>
                         <div class="logo_circle">
-                           <h1 style="color:White" href="index.html"><Strong>VIET FURNITURE</Strong></h1>
+                           <h1 style="color:White" href="{{url('/')}}"><Strong>VIET FURNITURE</Strong></h1>
                         </div>
                      </div>
                   </div>
@@ -104,23 +104,27 @@
       <section class="layout_padding what_we_do">
          <div class="container">
             <div class="row">
+               @foreach ($data as $product)
                <div class="col-md-3">
                   <div class="full decorate_blog">
-                        @foreach ($data as $product)
                             <tr>
                                  <td>
-                                 <img src=".\Image\products\{{$product->productImage1}}" alt="No Image">
+                                 <img class="img-fluid w-100" src=".\Image\products\{{$product->productImage1}}" alt="No Image">
                                  </td>
-                                 <div class="text-center">
-                                <h4>{{$product->productName}}</h4>
-                                <p>${{$product->productPrice}}</p>
-                                <p>{{$product->productDetails}}</p>
+                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h5>{{$product->productName}}</h5>
+                                <div class="d-flex justify-content-center">
+                                <h6>${{$product->productPrice}}</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div>
                               </div>
+                              <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                              <p>{{$product->productDetails}}</p>
+                           </div>
+                              <a href="" class="decorate_blog_bt"></i>Add To Cart</a>
                             </tr>
-                        @endforeach
                   </div>
                </div>
-              
+               @endforeach
                
          </div>
       </section>
