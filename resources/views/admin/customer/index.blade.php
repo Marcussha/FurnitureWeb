@@ -362,7 +362,6 @@
                 <div class="card-body">
                     <h4>
                         Customer
-                        <a href="{{ url('admin/customer/create')}}" class="btn btn-primary float-right">Create new </a>
                     </h4>
                 </div>
                 @if (Session::has('success'))
@@ -376,23 +375,19 @@
                         <tr>
                             <th>UserName</th>
                             <th>Fullname</th>
-                            <th>address</th>
                             <th>Phone</th>
-                            <th>email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $row )
                             <tr>
-                                <td>{{$row->username}}</td>
-                                <td>{{$row->fullname}}</td>
-                                <td>{{$row->address}}</td>
-                                <td>{{$row->phone}}</td>
                                 <td>{{$row->email}}</td>
+                                <td>{{$row->name}}</td>
+                                <td>{{$row->phone}}</td>
+                                
                                 <td>
-                                  <a href="{{url('admin/customer/edit/'. $row->username)}}" class="btn btn-success">Edit</a>
-                                  <a href="{{url('admin/customer/delete/'. $row->username)}}" class="btn btn-danger"
+                                  <a href="{{url('admin/customer/delete/'. $row->email)}}" class="btn btn-danger"
                                       onclick="return confirm ('Are you sure!');">Delete</a>
                                 </td>
                             </tr>
@@ -403,18 +398,7 @@
                 </div>
               </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">

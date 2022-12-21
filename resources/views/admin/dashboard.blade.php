@@ -117,40 +117,8 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/category/index')}}">Index</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/category')}}">Index</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{url('admin/category/create')}}">Create Category</a></li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
-              </span>
-                    <span class="menu-title">Customer</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer')}}">Index</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/customer/create')}}">Create Customer</a></li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-bookmark-check"></i>
-              </span>
-                    <span class="menu-title">Trademark</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Trademark</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create Trademark</a></li>
                     </ul>
                 </div>
             </li>
@@ -170,6 +138,24 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="nav-item menu-items">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-bookmark-check"></i>
+              </span>
+                    <span class="menu-title">Producer</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark')}}">Index</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/trademark/create')}}">Create New</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            
 
         </ul>
     </nav>

@@ -60,7 +60,7 @@
                      <div class="full">
                         <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="{{ asset('clients/img/menu_icon.png')}}" alt="#" /></span>
                         <div class="logo_circle">
-                           <h1 style="color:White" href="index.html"><Strong>VIET FURNITURE</Strong></h1>
+                           <h1 style="color:White" href=""><Strong>VIET FURNITURE</Strong></h1>
                         </div>
                      </div>
                   </div>
@@ -184,7 +184,7 @@
                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                       <h6 class="text-truncate mb-3"><b>Lighting</b></h6>
                       <div class="d-flex justify-content-center">
-                          <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                          <h6>$123.00</h6>
                       </div>
                       </div>
                       <a href="" class="decorate_blog_bt"></i>View Detail</a>
@@ -194,7 +194,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <div class="full">
-                     <a class="read_more_bt float-right" href="#">Read More</a>
+                     <a class="read_more_bt float-right" href="{{url('doing')}}">Read More</a>
                   </div>
                </div>
             </div>
