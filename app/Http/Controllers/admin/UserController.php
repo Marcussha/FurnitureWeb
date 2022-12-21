@@ -74,5 +74,30 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Customer removed successfully!');
     }
 
+    public function editC($id)
+    {
+        $users= Users::get();
+        $data = Users::where('id', '=', $id)->first();
+        return view('editC', compact('data','users'));
+    }
+    public function updateC(Request $request)
+    {
+
+        $id = $request->id;
+        $name = $request->name;
+        $email = $request->email;
+        $role = $request->role;
+
+
+
+        Users::where('id', '=', $id)->update([
+            'name'=>$name,
+            'email'=>$email,
+            'role'=>$role,
+
+        ]);
+        return redirect()->back()->with('success', 'Customer update successfully!');
+    }
+
 }
 

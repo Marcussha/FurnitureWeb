@@ -45,7 +45,7 @@
       <div id="mySidenav" class="sidenav">
          <ul class="menu_sidebar">
             <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-            <li><a href="{{url('about')}}">01.About</i></a></li>
+            <li><a href="{{url('about')}}">01.Category</i></a></li>
             <li><a href="{{url('doing')}}">02.What we do</a></li>
             <li><a href="{{url('contact')}}">03.Contact Us</a></li>
             <li><a href="{{ route('login') }}">04.Login</a></li>

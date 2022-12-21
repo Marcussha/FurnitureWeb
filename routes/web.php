@@ -29,9 +29,7 @@ Route::get('home', function () {
     return view('home');
 });
 
-Route::get('about', function () {
-    return view('about');
-});
+Route::get('about', [CategoryController::class, 'indexC']);
 
 Route::get('doing', [ProductController::class, 'index']);
 
@@ -42,6 +40,8 @@ Route::get('contact', function () {
 Route::get('test', function () {
     return view('test');
 });
+
+Route::get('edit/{id}',[UserController::class, 'editC']);
 
 
 Auth::routes();
@@ -75,8 +75,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::post('trademark/update', [TrademarkController::class, 'update']);
 //Customer by Thien
     Route::get('customer', [CustomerController::class, 'index']);
-    Route::get('customer/create', [CustomerController::class, 'create']);
-    Route::post('customer/save', [CustomerController::class, 'save']);
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete']);
     Route::get('customer/edit/{id}', [CustomerController::class, 'editC']);
     Route::post('customer/update', [CustomerController::class, 'updateC']);

@@ -6,14 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
     public function index()
     {
+        try {
         $product= Product::select();
         $data = Category::get();
+    } catch (\Exception $e) {
+        
+    }
         return view('admin.category.index',compact('data'));
+
     }
 
     public function create()
@@ -56,8 +62,26 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        $data = Category::where('categoryID', '=', $id)->delete();
-        return redirect()->back()->with('success', 'Category removed successfully!');
+        try {
+            $data = Category::where('categoryID', '=', $id)->delete();
+            $data->Category::destroy($id);
+            DB::commit();
+            $msg = 'Category removed' . $id . ' successfully!';
+            $type = 'success';
+        } catch (\Exception $e) {
+            $msg = $e->getMessage();
+            $type = 'danger';
+        }
+        return back()->with($type, $msg);
+        /*return redirect()->back()->with('success', 'Category removed successfully!');*/
+
+    }
+
+    public function indexC()
+    {
+        $product= Product::select();
+        $data = Category::get();
+        return view('about',compact('data'));
     }
 
 }

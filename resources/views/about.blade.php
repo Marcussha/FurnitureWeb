@@ -9,7 +9,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>About Us</title>
+   <title>Category</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -21,7 +21,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>About Us</title>
+      <title>Category</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -100,7 +100,7 @@
          <div class="row">
             <div class="col-sm-12">
                <div class="full">
-                  <h2>About us</h2>
+                  <h2>Category</h2>
                </div>
             </div>
          </div>
@@ -110,65 +110,18 @@
    <!-- section -->
    <section class="layout_padding what_we_do">
       <div class="container">
+        
          <div class="row">
+            @foreach ($data as $row )
             <div class="col-md-3">
                <div class="full decorate_blog">
                   <img src="images/sm1.png" alt="#" />
-                  <a class="decorate_blog_bt" href="hd.html">Home Decorate</a>
+                  <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                  <h5>{{$row->categoryName}}</h5>
+                  </div>
                </div>
             </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm2.png" alt="#" />
-                  <a class="decorate_blog_bt" href="od.html">Office Decorate</a>
-               </div>
-            </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm3.png" alt="#" />
-                  <a class="decorate_blog_bt" href="fd.html">Furniture Decorate</a>
-               </div>
-            </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm4.png" alt="#" />
-                  <a class="decorate_blog_bt" href="ld.html">Lighting Decorate</a>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm1.png" alt="#" />
-                  <a class="decorate_blog_bt" href="hd.html">Home Decorate</a>
-               </div>
-            </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm2.png" alt="#" />
-                  <a class="decorate_blog_bt" href="od.html">Office Decorate</a>
-               </div>
-            </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm3.png" alt="#" />
-                  <a class="decorate_blog_bt" href="fd.html">Furniture Decorate</a>
-               </div>
-            </div>
-            <div class="col-md-3">
-               <div class="full decorate_blog">
-                  <img src="images/sm4.png" alt="#" />
-                  <a class="decorate_blog_bt" href="ld.html">Lighting Decorate</a>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-sm-12">
-               <div class="full">
-                  <a class="read_more_bt float-right" href="#">Read More</a>
-               </div>
-            </div>
-         </div>
+            @endforeach
       </div>
    </section>
    <!-- end section -->

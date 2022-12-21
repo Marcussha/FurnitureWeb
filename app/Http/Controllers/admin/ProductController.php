@@ -14,12 +14,10 @@ class ProductController extends Controller
 
         $data= Product::select('products.*','trademark.trademarkName')
         ->join('trademark','products.trademarkId','=','trademark.trademarkId')->get();
+        $data = Product::select('products.*','categories.categoryName')
+        ->join('categories','products.categoryID','=','categories.categoryID')->get();
         return view('admin/product/index',compact('data'));
 
-        /* $data = Product::select('products.*','categories.categoryName')
-        ->join('categories', ' products.categoryID','=','categories.categoryID')
-        -> get();
-        return view("admins/products/index"); */
     }
 
     public function addP(){

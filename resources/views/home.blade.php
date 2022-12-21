@@ -45,7 +45,7 @@
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
-                    <a type="button" class="btn btn-outline-primary btn-floating" href="{{url('')}}">Edit</a>
+                    <a type="button" class="btn btn-outline-primary btn-floating" href="{{url('edit')}}">Edit</a>
                   </div>
                 </div>
                 <div class="d-flex justify-content-start">
