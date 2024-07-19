@@ -57,7 +57,7 @@
           <span class="nav-link">Navigation</span>
       </li>
       <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('admin/dashboard')}}">
+          <a class="nav-link" href="{{url('admin')}}">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
         </span>
@@ -125,7 +125,6 @@
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('admin/users')}}">Index</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('admin/users/update')}}">Update information</a></li>
             </ul>
         </div>
     </li>

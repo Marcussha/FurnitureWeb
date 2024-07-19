@@ -21,17 +21,20 @@ use App\Http\Controllers\admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
-    return view('index');
+   return view('index');
 });
 
 Route::get('home', function () {
     return view('home');
 });
 
+Route::get('category/{id}', [ProductController::class, 'showByCategory'])->name('category.show');
+
 Route::get('about', [CategoryController::class, 'indexC']);
 
-Route::get('doing', [ProductController::class, 'index']);
+Route::get('list-product', [ProductController::class, 'index']);
 
 Route::get('contact', function () {
     return view('contact');
@@ -50,7 +53,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
 
-    Route::get('dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'] );
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'dashboard'] );
 
     //Category admin dashboard
     Route::get('category', [CategoryController::class, 'index']);
@@ -73,7 +76,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('trademark/delete/{id}', [TrademarkController::class, 'delete']);
     Route::get('trademark/edit/{id}', [TrademarkController::class, 'edit']);
     Route::post('trademark/update', [TrademarkController::class, 'update']);
-//Customer by Thien
+
     Route::get('customer', [CustomerController::class, 'index']);
     Route::get('customer/delete/{id}', [CustomerController::class, 'delete']);
     Route::get('customer/edit/{id}', [CustomerController::class, 'editC']);

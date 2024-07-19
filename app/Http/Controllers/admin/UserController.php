@@ -88,8 +88,6 @@ class UserController extends Controller
         $email = $request->email;
         $role = $request->role;
 
-
-
         Users::where('id', '=', $id)->update([
             'name'=>$name,
             'email'=>$email,

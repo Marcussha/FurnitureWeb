@@ -49,23 +49,15 @@
    </head>
    <body id="default_theme" class="wwd">
       <!-- header -->
-      <div id="mySidenav" class="sidenav">
-         <ul class="menu_sidebar">
-            <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-            <li><a href="{{url('about')}}">01.About</i></a></li>
-            <li><a href="{{url('doing')}}">02.What we do</a></li>
-            <li><a href="{{url('contact')}}">03.Contact Us</a></li>
-            <li><a href="{{ route('login') }}">04.Login</a></li>
-            <li><a href="{{ route('home') }}">05.Profile</a></li>
-         </ul>
-      </div>
+      @include('layouts.inc.app.sidebar')
+
       <header class="header">
          <div class="header_top">
             <div class="container">
                <div class="row">
                   <div class="col-md-4">
                      <div class="full">
-                        <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="img/menu_icon.png" alt="#" /></span>
+                        <span class="toggle_icon" style="cursor:pointer" onclick="openNav()"><img src="{{ asset('clients/img/menu_icon.png')}}" alt="#" /></span>
                         <div class="logo_circle">
                            <h1 style="color:White" href="{{url('/')}}"><Strong>VIET FURNITURE</Strong></h1>
                         </div>
@@ -74,10 +66,10 @@
                   <div class="col-md-8">
                      <div class="float-right">
                         <ul class="top_links">
-                           <li><a href="{{route('login')}}"><img src="images/profile_icon.png" alt="#" /></a></li>
+                           <li><a href="{{route('login')}}"><img src="{{ asset('images/profile_icon.png')}}" alt="#" /></a></li>
                            <li class="searchbar">
                               <input class="search_input" type="text" name="" placeholder="Search...">
-                              <a href="#" class="search_icon"><img src="images/search_icon.png" alt="#" /></a>
+                              <a href="#" class="search_icon"><img src="{{ asset('images/search_icon.png')}}" alt="#" /></a>
                            </li>
                         </ul>
                      </div>
@@ -88,195 +80,126 @@
       </header>
       <!-- end header -->
       <!-- Start Banner Slider -->
-      <div id="inner_pade" class="banner-slider">
-         <div class="container">
+    <div id="inner_pade" class="banner-slider">
+        <div class="container">
             <div class="row">
-               <div class="col-sm-12">
-                  <div class="full">
-                      <h2>Our Produtcs</h2>
-                  </div>
-               </div>
+                <div class="col-sm-12">
+                    <div class="full">
+                        <h2>Our Products</h2>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- End Banner Slider -->
-      <!-- section -->
-      <section class="layout_padding what_we_do">
-         <div class="container">
+        </div>
+    </div>
+    
+    <!-- Product Section -->
+    <section class="layout_padding what_we_do">
+        <div class="container">
+            <h2>Products in {{ $category->categoryName }}</h2>
             <div class="row">
-               @foreach ($data as $product)
-               <div class="col-md-3">
-                  <div class="full decorate_blog">
-                            <tr>
-                                 <td>
-                                 <img class="img-fluid w-100" src=".\Image\products\{{$product->productImage1}}" alt="No Image">
-                                 </td>
-                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <h5>{{$product->productName}}</h5>
-                                <div class="d-flex justify-content-center">
-                                <h6>${{$product->productPrice}}</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                              </div>
-                              <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                              <p>{{$product->productDetails}}</p>
-                           </div>
-                              <a href="" class="decorate_blog_bt"></i>Add To Cart</a>
-                            </tr>
-                  </div>
-               </div>
-               @endforeach
-               
-         </div>
-      </section>
-      <!-- end section -->
-      
-      <!-- section -->
-      <section class="layout_padding about_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-7 p-relative r-left">
-                  <div class="full back_blog text_align_center padding_right_left_15">
-                     <img src="images/wd_2.png" alt="#" />
-                  </div>
-               </div>
-               <div class="col-md-5">
-                  <div class="full heading_s1">
-                     <h3>Best office  Lighting</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum..</p>
-                  </div>
-                  <div class="full">
-                     <a class="read_more_bt" href="#">Get A Quote</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- end section -->
-      <!-- end footer -->
-      <footer>
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="full footer_top">
-                     <div class="container">
-                        <div class="row">
-                           <div class="col-sm-3">
-                              <div class="full f_logo">
-                                 <img src="images/footer_img.png" alt="#" />
-                              </div>
-                              <div class="full">
-                                 <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna strud exercitation</p>
-                              </div>
-                           </div>
-                           <div class="col-sm-3">
-                              <div class="full heading_footer">
-                                 <h3>Menu</h3>
-                              </div>
-                              <div class="full">
-                                 <ul class="footer_link">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">What we do</a></li>
-                                    <li><a href="#">Testimonial</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-sm-3">
-                              <div class="full heading_footer">
-                                 <h3>Instagram</h3>
-                              </div>
-                              <div class="full">
-                                 <ul class="footer_link_intas">
-                                    <li>
-                                       <span><img src="images/f_in_blog.png" alt="#" /></span>
-                                       <span>Consectetur Adipiscing</span>
-                                    </li>
-                                    <li>
-                                       <span><img src="images/f_in_blog2.png" alt="#" /></span>
-                                       <span>Consectetur Adipiscing</span>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="full heading_footer">
-                                 <h3>Subscribe</h3>
-                              </div>
-                              <div class="full footer_form">
-                                 <form>
-                                    <fieldset>
-                                       <div class="row">
-                                          <div class="col-md-12">
-                                             <div class="full">
-                                                <input type="email" placeholder="Your Email" name="_email" />
-                                             </div>
-                                             <div class="full">
-                                                <button>Subscribe</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </fieldset>
-                                 </form>
-                              </div>
-                           </div>
-                           <div class="col-md-12">
-                              <div class="row margin_top_50">
-                                 <div class="col-md-10 offset-md-1">
-                                    <div class="row">
-                                       <div class="col-sm-4">
-                                          <div class="full cont_info">
-                                             <i class="fa fa-map-marker"></i>
-                                             <span>Location</span>
-                                          </div>
-                                       </div>
-                                       <div class="col-sm-4">
-                                          <div class="full cont_info">
-                                             <i class="fa fa-phone"></i>
-                                             <span>Call +01 1234 567 890</span>
-                                          </div>
-                                       </div>
-                                       <div class="col-sm-4">
-                                          <div class="full cont_info">
-                                             <i class="fa fa-envelope" style="font-size: 17px;"></i>
-                                             <span>demo@gmail.com</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                @foreach ($products as $product)
+                    <div class="col-md-3">
+                        <div class="product-card">
+                            <img class="img-fluid w-100" src="{{ asset('Image/products/' . $product->productImage1) }}" alt="No Image">
+                            <h5>{{ $product->productName }}</h5>
+                            <p>${{ $product->productPrice }}</p>
+                            <p>{{ $product->productDetails }}</p>
+                            <a href="#" class="btn btn-primary">Add To Cart</a>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                @endforeach
             </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- cpy -->
-      <div class="cpy">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="full center">
-                     <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="full text_align_center">
-                     <p>© 2020 All Rights Reserved. <a href="https://html.design">html.design</a></p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end cpy -->
+        </div>
+    </section>
+      <!-- end section -->
+
+      <!-- footer -->
+      <footer>
+        <div class="container-fluid">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="footer_top">
+                    <div class="container">
+                       <div class="row justify-content-center">
+                          <!-- Menu Section -->
+                          <div class="col-sm-3">
+                             <div class="heading_footer">
+                                <h3>Menu</h3>
+                             </div>
+                             <ul class="footer_link list-unstyled">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="">What We Do</a></li>
+                                <li><a href="#">Testimonial</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                             </ul>
+                          </div>
+              
+                          <!-- Instagram Section -->
+                          <div class="col-sm-3">
+                             <div class="heading_footer">
+                                <h3>Instagram</h3>
+                             </div>
+                             <ul class="footer_link_intas list-unstyled">
+                                <li>
+                                   <span><img src="{{ asset('images/f_in_blog.png')}}" alt="Instagram Image 1" /></span>
+                                   <span>Consectetur Adipiscing</span>
+                                </li>
+                                <li>
+                                   <span><img src="{{ asset('images/f_in_blog2.png')}}" alt="Instagram Image 2" /></span>
+                                   <span>Consectetur Adipiscing</span>
+                                </li>
+                             </ul>
+                          </div>
+              
+                          <!-- Subscribe Section -->
+                          <div class="col-sm-3">
+                             <div class="heading_footer">
+                                <h3>Subscribe</h3>
+                             </div>
+                             <div class="footer_form">
+                                <form>
+                                   <fieldset>
+                                      <div class="row">
+                                         <div class="col-md-10">
+                                            <input type="email" placeholder="Your Email" name="_email" class="form-control mb-2" />
+                                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                                         </div>
+                                      </div>
+                                   </fieldset>
+                                </form>
+                             </div>
+                          </div>
+                       </div>
+              
+                       <!-- Contact Information Section -->
+                       <div class="row margin_top_50 text-center">
+                          <div class="col-md-10 offset-md-1">
+                             <div class="row">
+                                <div class="col-sm-6">
+                                   <div class="cont_info">
+                                      <i class="fa fa-map-marker"></i>
+                                      <span>Ho Chi Minh City</span>
+                                   </div>
+                                </div>
+                                <div class="col-sm-4">
+                                   <div class="cont_info">
+                                      <i class="fa fa-phone"></i>
+                                      <span>Call +01 1234 567 890</span>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>   
+     <!-- end footer -->
+
       <!-- jQuery (necessary for Bootstrap's JavaScript) -->
       <script src="{{ asset('clients/js/jquery.min.js') }}"></script>
       <script src="{{ asset('clients/js/popper.min.js') }}"></script>

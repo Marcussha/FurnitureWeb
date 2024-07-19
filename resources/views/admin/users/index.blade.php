@@ -84,7 +84,7 @@
             </li>
 
             <li class="nav-item menu-items">
-                <a class="nav-link" href="{{url('admin/dashboard')}}">
+                <a class="nav-link" href="{{url('admin')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -152,7 +152,6 @@
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="{{url('admin/users')}}">Index</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{url('admin/users/update')}}">Update information</a></li>
                     </ul>
                 </div>
             </li>
@@ -350,6 +349,12 @@
                                 <a href="{{ url('admin/users/create')}}" class="btn btn-primary float-right">Create new </a>
                             </h4>
                         </div>
+                        <div class="card-body">
+                            <h4>
+                               Role = 1 is an admin
+                            </h4>
+                        </div>
+                        
                         @if (Session::has('success'))
                             <div class="alert alert-success" role="alert">
                                 {{Session::get('success')}}

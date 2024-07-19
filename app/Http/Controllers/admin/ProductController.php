@@ -84,11 +84,27 @@ class ProductController extends Controller
 
         $data= Product::select('products.*','trademark.trademarkName')
         ->join('trademark','products.trademarkId','=','trademark.trademarkId')->get();
-        return view('doing',compact('data'));
+        return view('listProduct',compact('data'));
 
         /* $data = Product::select('products.*','categories.categoryName')
         ->join('categories', ' products.categoryID','=','categories.categoryID')
         -> get();
         return view("admins/products/index"); */
     }
+
+     // Method to display products by category
+     public function showByCategory($id)
+     {
+         // Fetch the selected category
+         $category = Category::where('categoryID', $id)->first();
+ 
+         if (!$category) {
+             return redirect('/')->with('error', 'Category not found');
+         }
+ 
+         // Fetch products for the selected category
+         $products = Product::where('categoryID', $id)->get();
+ 
+         return view('doing', compact('products', 'category'));
+     }
 }
