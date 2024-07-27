@@ -27,25 +27,34 @@ class ProductController extends Controller
     }
 
     public function saveP(Request $request){
-        $request -> validate([
-            'id'=>'required',
-            'name'=>'required',
-            'price'=>'required',
-            'detail'=>'required',
-            'image'=>'required',
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'detail' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+    
         $product = new Product();
         $product->productID = $request->id;
         $product->productName = $request->name;
         $product->productPrice = $request->price;
         $product->productDetails = $request->detail;
-        $product->productImage1 = $request->image;
+    
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = uniqid() . '_' . time() . '.' . $image->extension();
+            $image->move(public_path('Image/products'), $imageName);
+            $product->productImage1 = $imageName;
+        }
+    
         $product->trademarkId = $request->trademark;
         $product->categoryID = $request->category;
         $product->save();
+    
         return redirect()->back()->with('success', 'Product added successfully!');
     }
+    
 
     public function editP($id)
     {

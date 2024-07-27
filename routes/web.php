@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\TrademarkController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\admin\UserController;
 
@@ -40,14 +41,25 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-Route::get('test', function () {
-    return view('test');
-});
+
+//Route::get('cart', [CartController::class, 'viewCart'])->name('cart.view');
+//Route::post('cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+//Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+//Route::post('cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');
+//Route::post('cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
 
 Route::get('edit/{id}',[UserController::class, 'editC']);
 
 
 Auth::routes();
+Route::middleware('auth')->group(function () {
+    Route::get('cart', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::post('cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');
+    Route::post('cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -88,8 +100,5 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('users/delete/{id}', [UserController::class, 'delete']);
     Route::get('users/edit/{id}', [UserController::class, 'editU']);
     Route::post('users/update', [UserController::class, 'updateU']);
-
-
-
 
 });

@@ -8438,8 +8438,8 @@ img[data-toggle="modal"] {
 }
 
 form button {
-    width: 230px;
-    height: 80px;
+    width: 150px;
+    height: 40px;
     border: none;
     border-radius: 100px;
     background: #2d2d2d;
@@ -8448,6 +8448,10 @@ form button {
     text-transform: uppercase;
     color: #e1e7d8;
     margin-top: 35px;
+    display: flex;
+    align-items: center; /* Vertically centers the icon */
+    justify-content: center; /* Horizontally centers the icon */
+
 }
 
 form button:hover,
@@ -8694,7 +8698,7 @@ form button:focus {
 
 #inner_pade.banner-slider {
     height: 485px;
-    background-image: url('../images/inner_page_banner.png');
+    background-image: url('../images/contact_banner.png');
     width: 100%;
     background-size: auto;
     background-position: right top;

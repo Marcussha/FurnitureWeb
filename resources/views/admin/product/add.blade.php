@@ -12,7 +12,7 @@
                 {{Session::get('success')}}
             </div>
         @endif
-        <form method="post" action="{{url('admin/product/save')}}">
+        <form method="post" action="{{url('admin/product/save')}}"  enctype="multipart/form-data">
         @csrf 
         <div class="md-3">
             <label class="form-label" for="id">Ids</label>

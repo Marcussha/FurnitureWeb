@@ -189,7 +189,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <div class="full">
-                     <a class="read_more_bt float-right" href="{{url('doing')}}">Read More</a>
+                     <a class="read_more_bt float-right" href="{{url('list-product')}}">Read More</a>
                   </div>
                </div>
             </div>
