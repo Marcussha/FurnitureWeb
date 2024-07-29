@@ -58,8 +58,6 @@ class UserController extends Controller
         $email = $request->email;
         $role = $request->role;
 
-
-
         Users::where('id', '=', $id)->update([
             'name'=>$name,
             'email'=>$email,
@@ -76,10 +74,11 @@ class UserController extends Controller
 
     public function editC($id)
     {
-        $users= Users::get();
+        $users = Users::get();
         $data = Users::where('id', '=', $id)->first();
-        return view('editC', compact('data','users'));
+        return view('editC', compact('data', 'users'));
     }
+
     public function updateC(Request $request)
     {
 

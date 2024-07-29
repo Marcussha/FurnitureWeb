@@ -14,4 +14,9 @@ class RecieptCustomer extends Model
 
     // Disable timestamps if your table doesn't have created_at and updated_at columns
     public $timestamps = false;
+
+    public function details()
+    {
+        return $this->hasMany(RecieptDetail::class, 'RecieptId', 'RecieptId');
+    }
 }

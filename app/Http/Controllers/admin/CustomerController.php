@@ -24,7 +24,6 @@ class CustomerController extends Controller
     }
     public function updateC(Request $request)
     {
-
         $username = $request->username;
         $password = $request->password;
         $fullname = $request->fullname;

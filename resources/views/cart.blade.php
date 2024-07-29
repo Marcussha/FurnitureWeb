@@ -128,11 +128,10 @@
                <form action="{{ route('cart.checkout') }}" method="POST" style="display:inline;">
                   @csrf
                   <input type="hidden" name="customer_id" value="{{ auth()->user()->id }}">
-                  <input type="hidden" name="staff_id" value="1">
                   <button type="submit" class="btn-checkout">Checkout</button>
                </form>
             @else
-               <p>Please log in to proceed with checkout.</p>
+               <p><strong>Please log in to proceed with checkout.</p>
             @endif
          </div>
       @else

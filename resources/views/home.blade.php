@@ -20,7 +20,7 @@
           <div class="row g-0">
             <div class="col-md-4 gradient-custom text-center text"
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="images\profile_icon.png"
+              <img src={{ asset('images/profile_icon.png') }}
                 alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
               <h4>{{Auth::user()->name}}</h4>
               <p>VIET MEMBER</p>
@@ -31,21 +31,21 @@
                 <h6>Information</h6>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
+                  <div class="">
+                    <h6><strong>Name</strong></h6>
+                    <p class="text">{{Auth::user()->name}}</p>
+                  </div>
                   <div class="col">
 
                     <h6><strong>Email</strong></h6>
                     <p class="text">{{Auth::user()->email}}</p>
-                  </div>
-                  <div class="">
-                    <h6><strong>Telephone</strong></h6>
-                    <p class="text">{{Auth::user()->phone}}</p>
                   </div>
                 </div>
                 
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
-                    <a type="button" class="btn btn-outline-primary btn-floating" href="{{url('edit')}}">Edit</a>
+                    <a type="button" class="btn btn-outline-primary btn-floating" href="{{ url('edit/' . Auth::user()->id) }}">Edit</a>
                   </div>
                 </div>
                 <div class="d-flex justify-content-start">

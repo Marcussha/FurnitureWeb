@@ -14,4 +14,16 @@ class RecieptDetail extends Model
 
     // Disable timestamps if your table doesn't have created_at and updated_at columns
     public $timestamps = false;
+    
+    // Define the relationship with RecieptCustomer
+    public function reciept()
+    {
+        return $this->belongsTo(RecieptCustomer::class, 'RecieptId', 'RecieptId');
+    }
+
+    // Define the relationship with Product (assuming you have a Product model)
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'productID', 'productID');
+    }
 }

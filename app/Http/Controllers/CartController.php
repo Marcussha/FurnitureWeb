@@ -53,14 +53,12 @@ class CartController extends Controller
         // Validate input
         $request->validate([
             'customer_id' => 'required',
-            'staff_id' => 'required'
         ]);
 
         // Create reciept_customer record
         $reciept = new RecieptCustomer();
         $reciept->RecieptId = $this->generateUniqueId(); // Use generated unique ID
         $reciept->customerId = $request->customer_id;
-        $reciept->staffId = $request->staff_id;
         $reciept->quantity = array_sum(array_column(Session::get('cart'), 'quantity'));
         $reciept->price = array_sum(array_map(function ($item) {
             return $item['price'] * $item['quantity'];
@@ -101,6 +99,15 @@ class CartController extends Controller
     {
         Session::forget('cart');
         return redirect()->back();
+    }
+
+    public function index()
+    {
+        // Retrieve all cart items
+        $carts = RecieptCustomer::with('details')->get();
+
+        // Pass the cart items to the view
+        return view('admin.cart.cart', compact('carts'));
     }
 
 }

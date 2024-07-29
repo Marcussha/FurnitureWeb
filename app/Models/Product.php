@@ -9,4 +9,10 @@ class Product extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    // Define the relationship with RecieptDetail
+    public function recieptDetails()
+    {
+        return $this->hasMany(RecieptDetail::class, 'productID', 'productID');
+    }
 }

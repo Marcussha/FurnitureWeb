@@ -27,8 +27,8 @@ Route::get('/', function () {
    return view('index');
 });
 
-Route::get('home', function () {
-    return view('home');
+Route::get('contact', function () {
+    return view('contact');
 });
 
 Route::get('category/{id}', [ProductController::class, 'showByCategory'])->name('category.show');
@@ -37,25 +37,15 @@ Route::get('about', [CategoryController::class, 'indexC']);
 
 Route::get('list-product', [ProductController::class, 'index']);
 
-Route::get('contact', function () {
-    return view('contact');
-});
-
-
-//Route::get('cart', [CartController::class, 'viewCart'])->name('cart.view');
-//Route::post('cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
-//Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-//Route::post('cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');
-//Route::post('cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
-
-
+Route::get('home', function () {return view('home');});
 Route::get('edit/{id}',[UserController::class, 'editC']);
+Route::post('users/update', [UserController::class, 'updateC']);
 
+Route::get('cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::post('cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
-    Route::get('cart', [CartController::class, 'viewCart'])->name('cart.view');
-    Route::post('cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
     Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');
     Route::post('cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
@@ -100,5 +90,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('users/delete/{id}', [UserController::class, 'delete']);
     Route::get('users/edit/{id}', [UserController::class, 'editU']);
     Route::post('users/update', [UserController::class, 'updateU']);
+
+    Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+
 
 });
