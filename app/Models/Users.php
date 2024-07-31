@@ -10,5 +10,11 @@ class Users extends Model
     use HasFactory;
     public $timestamps = false;
 
+    // Define the relationship with RecieptCustomer
+    public function recieptCustomers()
+    {
+        return $this->hasMany(RecieptCustomer::class, 'customerId', 'id');
+    }
+
 }
 

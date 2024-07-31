@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\RecieptDetail;
 use App\Models\RecieptCustomer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -109,5 +110,21 @@ class CartController extends Controller
         // Pass the cart items to the view
         return view('admin.cart.cart', compact('carts'));
     }
+
+
+    public function clientOrders()
+    {
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Retrieve cart items for the authenticated user
+        $carts = RecieptCustomer::with('details')
+                    ->where('customerId', $user->id) // Assuming customerId is the foreign key in RecieptCustomer table
+                    ->get();
+
+        // Pass the cart items to the view
+        return view('orders', compact('carts'));
+    }
+
 
 }

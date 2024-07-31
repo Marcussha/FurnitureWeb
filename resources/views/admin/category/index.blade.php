@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,77 +20,85 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../admins/css/style.css">
     <!-- End layout styles -->
-  </head>
-  <body>
+</head>
+<body>
     <div class="container-scroller">
-      @include('layouts.inc.admin.sidebar')
-      <div class="container-fluid page-body-wrapper">
-        @include('layouts.inc.admin.navbar')
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="col-lg-20 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                    <h4>
-                        Category
-                        <a href="{{ url('admin/category/create')}}" class="btn btn-primary float-right">Add Category</a>
-                    </h4>
-                </div>
-                @if (Session::has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{Session::get('success')}}
-                </div>
-                @endif
+        @include('layouts.inc.admin.sidebar')
+        <div class="container-fluid page-body-wrapper">
+            @include('layouts.inc.admin.navbar')
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="col-lg-20 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>
+                                    Category
+                                    <a href="{{ url('admin/category/create')}}" class="btn btn-primary float-right">Add Category</a>
+                                </h4>
+                            </div>
+                            @if (Session::has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
+                            @endif
 
-                @if (Session::has('error'))
-                <div class="alert alert-success" role="alert">
-                    {{Session::get('error')}}
-                </div>
-                @endif
+                            @if (Session::has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('error') }}
+                            </div>
+                            @endif
 
-                <div class="card-body">
-                    <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>IDs</th>
-                            <th>Category name</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($data as $row )
-                            <tr>
-                                <td>{{$row->categoryID}}</td>
-                                <td>{{$row->categoryName}}</td>
-                                <td>
-                                    <a href="{{url('admin/category/edit/'. $row->categoryID)}}" class="btn btn-success">Edit</a>
-                                    <a href="{{url('admin/category/delete/'. $row->categoryID)}}" class="btn btn-danger"
-                                        onclick="return confirm ('Are you sure!');">Delete</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                    </table>
-                  </div>
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>IDs</th>
+                                            <th>Category name</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data as $row)
+                                        <tr>
+                                            <td>{{ $row->categoryID }}</td>
+                                            <td>{{ $row->categoryName }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/category/edit/' . $row->categoryID) }}" class="btn btn-success">Edit</a>
+                                                <a href="{{ url('admin/category/delete/' . $row->categoryID) }}" class="btn btn-danger"
+                                                    onclick="return confirm('Are you sure?');">Delete</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © VIET FURNITURE 2022</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Furniture for your dream</span>
+                    </div>
+                </footer>
+                <!-- partial -->
             </div>
-  
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © VIET FURNITURE 2022</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Furniture for your dream</span>
-            </div>
-          </footer>
-          <!-- partial -->
+            <!-- main-panel ends -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+    <!-- Popup Modal -->
+    <div id="error-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <p>The category is in use and cannot be deleted.</p>
+        </div>
+    </div>
+
     <!-- plugins:js -->
     <script src="../admins/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -111,5 +119,5 @@
     <!-- Custom js for this page -->
     <script src="../admins/js/dashboard.js"></script>
     <!-- End custom js for this page -->
-  </body>
+</body>
 </html>

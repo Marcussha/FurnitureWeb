@@ -19,4 +19,9 @@ class RecieptCustomer extends Model
     {
         return $this->hasMany(RecieptDetail::class, 'RecieptId', 'RecieptId');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(Users::class, 'customerId', 'id');
+    }
 }

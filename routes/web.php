@@ -23,13 +23,9 @@ use App\Http\Controllers\admin\UserController;
 |
 */
 
-Route::get('/', function () {
-   return view('index');
-});
+Route::get('/', function () {return view('index');});
 
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('contact', function () {return view('contact');});
 
 Route::get('category/{id}', [ProductController::class, 'showByCategory'])->name('category.show');
 
@@ -49,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::post('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('cart/remove/{productId}', [CartController::class, 'removeItem'])->name('cart.remove');
     Route::post('cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+    Route::get('orders', [CartController::class, 'clientOrders'])->name('client.orders');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -92,6 +89,4 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::post('users/update', [UserController::class, 'updateU']);
 
     Route::get('cart', [CartController::class, 'index'])->name('cart.index');
-
-
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -11,14 +12,15 @@ use App\Models\Trademark;
 class ProductController extends Controller
 {
     public function getProduct(){
+        
+        $data = Product::select('products.*', 'trademark.trademarkName', 'categories.categoryName')
+            ->join('trademark', 'products.trademarkId', '=', 'trademark.trademarkId')
+            ->join('categories', 'products.categoryID', '=', 'categories.categoryID')
+            ->get();
 
-        $data= Product::select('products.*','trademark.trademarkName')
-        ->join('trademark','products.trademarkId','=','trademark.trademarkId')->get();
-        $data = Product::select('products.*','categories.categoryName')
-        ->join('categories','products.categoryID','=','categories.categoryID')->get();
-        return view('admin/product/index',compact('data'));
-
+        return view('admin/product/index', compact('data'));
     }
+
 
     public function addP(){
         $categories = Category::get();
@@ -56,32 +58,63 @@ class ProductController extends Controller
     }
     
 
-    public function editP($id)
-    {
+    public function editP($id){
+
         $categories= Category::get();
         $trademark = Trademark::get();
         $data = Product:: where('productID','=',$id)->first();
         return view('admin.product.update', compact('data','trademark','categories'));
     }
 
-    public function updateP(Request $request){
+    public function updateP(Request $request)
+    {
         $productID = $request->id;
         $productName = $request->name;
         $productPrice = $request->price;
         $productDetails = $request->detail;
-        $productImage1 = $request->image;
         $trademarkId = $request->trademark;
-        $categoryID = $request ->category;
-        Product::where('productID', '=', $productID)->update([
-            'productName'=>$productName,
-            'productPrice'=>$productPrice,
-            'productDetails'=>$productDetails,
-            'productImage1'=>$productImage1,
-            'trademarkId'=>$trademarkId,
-            'categoryID'=>$categoryID
-        ]);
-        return redirect()->back()->with('success', 'Product updated successfully!');
+        $categoryID = $request->category;
+        
+        // Retrieve the current product image from the database
+        $product = Product::where('productID', $productID)->first();
+        
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+
+        $currentImage = $product->productImage1;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // If a new image is uploaded, store it and update the image path
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('Image/products'), $imageName);
+            $productImage1 = $imageName;
+        } else {
+            // If no new image is uploaded, keep the current image
+            $productImage1 = $currentImage;
+        }
+
+        try {
+            // Update the product details
+            Product::where('productID', $productID)->update([
+                'productName' => $productName,
+                'productPrice' => $productPrice,
+                'productDetails' => $productDetails,
+                'productImage1' => $productImage1,
+                'trademarkId' => $trademarkId,
+                'categoryID' => $categoryID
+            ]);
+            
+            return redirect()->back()->with('success', 'Product updated successfully!');
+        } catch (\Exception $e) {
+            // Log any errors and return an error message
+            Log::error('Product update error: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
     }
+
    
     public function deleteP($id)
     {
@@ -89,6 +122,7 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product removed successfully!');
     }
 
+    // Method to display products on client page
     public function index(){
 
         $data= Product::select('products.*','trademark.trademarkName')
@@ -102,8 +136,7 @@ class ProductController extends Controller
     }
 
      // Method to display products by category
-     public function showByCategory($id)
-     {
+     public function showByCategory($id){
          // Fetch the selected category
          $category = Category::where('categoryID', $id)->first();
  

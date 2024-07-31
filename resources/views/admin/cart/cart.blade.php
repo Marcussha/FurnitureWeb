@@ -23,11 +23,12 @@
         height: auto;
     }
 </style>
+
     <div class="row">
         <div class="col-sm-12 mb-4 mb-xl-0">
             <div class="card">
                 <div class="card-body">
-                    <h1>Cart Items</h1>
+                    <h1>Cart Details</h1>
                     @if($carts->isEmpty())
                         <p class="empty-cart">No cart items found.</p>
                     @else
@@ -35,7 +36,7 @@
                             <thead>
                                 <tr>
                                     <th>Reciept ID</th>
-                                    <th>Customer ID</th>
+                                    <th>Customer</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
                                     <th>Details</th>
@@ -45,7 +46,7 @@
                                 @foreach($carts as $cart)
                                     <tr>
                                         <td>{{ $cart->RecieptId }}</td>
-                                        <td>{{ $cart->customerId }}</td>
+                                        <td>{{ $cart->user->name }}</td>
                                         <td>{{ $cart->quantity }}</td>
                                         <td>${{ number_format($cart->price, 2) }}</td>
                                         <td>

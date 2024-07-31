@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -80,19 +81,32 @@ class CategoryController extends Controller
     public function delete($id)
     {
         try {
-            $data = Category::where('categoryID', '=', $id)->delete();
-            $data->Category::destroy($id);
-            DB::commit();
-            $msg = 'Category removed ' . $id . ' successfully!';
-            $type = 'success';
+            // Check if the category is in use
+            $categoryInUse = Product::where('categoryID', $id)->exists();
+
+            if ($categoryInUse) {
+                // If the category is in use, set the error message
+                $msg = 'The category is in use and cannot be deleted.';
+                $type = 'error'; // Or 'danger', depending on your view configuration
+            } else {
+                // If not in use, proceed to delete the category
+                Category::where('categoryID', $id)->delete();
+                // Set the success message
+                $msg = 'Category removed ' . $id . ' successfully!';
+                $type = 'success';
+            }
         } catch (\Exception $e) {
-            $msg = $e->getMessage();
-            $type = 'danger';
+            // Log the error and set the error message
+            Log::error('Category deletion error: ' . $e->getMessage());
+            $msg = 'An error occurred: ' . $e->getMessage();
+            $type = 'error'; // Or 'danger', depending on your view configuration
         }
+        
+        // Redirect back with the message
         return back()->with($type, $msg);
     }
 
-    
+
     // Display the categories on the about page
     public function indexC()
     {

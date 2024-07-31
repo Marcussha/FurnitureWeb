@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../admins/css/style.css">
     <!-- End layout styles -->
 </head>
+
 <body>
 <div class="container-scroller">
     @include('layouts.inc.admin.sidebar')
@@ -46,6 +47,7 @@
                                         <th>Price</th>
                                         <th>Image</th>
                                         <th>Detail</th>
+                                        <th>Producer</th>
                                         <th>Category</th>
                                         <th> Action</th>
                                     </tr>
@@ -61,6 +63,7 @@
                                                      height="30x" width="30px">
                                             </td>
                                             <td>{{$product->productDetails}}</td>
+                                            <td>{{$product->trademarkName}}</td>
                                             <td>{{$product->categoryName}}</td>
                                             <td><a href="{{url('admin/product/edit/'. $product->productID)}}" class="btn btn-primary" >Edit</a>
                                                 <a href="{{url('admin/product/delete/'.$product->productID)}}" class="btn btn-danger"
